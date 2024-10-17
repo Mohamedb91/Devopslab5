@@ -1,2 +1,2 @@
 all:
-    gcc -o my-app main.c
+	gcc -o cprogram main.c
