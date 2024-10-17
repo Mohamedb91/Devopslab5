@@ -9,6 +9,6 @@ jobs:
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: my-app
-        path: ./my-app
+        name: cprogram
+        path: ./cprogram
 
