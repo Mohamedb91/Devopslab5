@@ -1,14 +1,30 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - master
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install build-essential
+
     - name: Build application
       run: make
-    - name: Upload build artifacts
+
+    - name: List files
+      run: ls -la   # This will list files in the working directory for debugging
+
+    - name: Upload build artifact
       uses: actions/upload-artifact@v3
       with:
         name: cprogram
         path: ./cprogram
-
